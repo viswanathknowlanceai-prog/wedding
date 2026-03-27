@@ -1,12 +1,12 @@
-from fastapi import FastAPI, APIRouter
+from fastapi import FastAPI, APIRouter, HTTPException
 from dotenv import load_dotenv
 from starlette.middleware.cors import CORSMiddleware
 from motor.motor_asyncio import AsyncIOMotorClient
 import os
 import logging
 from pathlib import Path
-from pydantic import BaseModel, Field, ConfigDict
-from typing import List
+from pydantic import BaseModel, Field, ConfigDict, EmailStr
+from typing import Optional
 import uuid
 from datetime import datetime, timezone
 
@@ -27,44 +27,60 @@ api_router = APIRouter(prefix="/api")
 
 
 # Define Models
-class StatusCheck(BaseModel):
-    model_config = ConfigDict(extra="ignore")  # Ignore MongoDB's _id field
+class RSVPCreate(BaseModel):
+    name: str
+    email: EmailStr
+    phone: str
+    guests: str
+    message: Optional[str] = ""
+
+class RSVPResponse(BaseModel):
+    model_config = ConfigDict(extra="ignore")
     
-    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
-    client_name: str
-    timestamp: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+    id: str
+    name: str
+    email: str
+    phone: str
+    guests: str
+    message: str
+    timestamp: datetime
 
-class StatusCheckCreate(BaseModel):
-    client_name: str
-
-# Add your routes to the router instead of directly to app
+# Routes
 @api_router.get("/")
 async def root():
-    return {"message": "Hello World"}
+    return {"message": "Welcome to D. Gayathri & D. Mano Vikas Wedding Website API"}
 
-@api_router.post("/status", response_model=StatusCheck)
-async def create_status_check(input: StatusCheckCreate):
-    status_dict = input.model_dump()
-    status_obj = StatusCheck(**status_dict)
+@api_router.post("/rsvp", response_model=RSVPResponse)
+async def create_rsvp(rsvp_data: RSVPCreate):
+    """
+    Create a new RSVP entry for the wedding
+    """
+    # Create RSVP document
+    rsvp_dict = rsvp_data.model_dump()
+    rsvp_dict['id'] = str(uuid.uuid4())
+    rsvp_dict['timestamp'] = datetime.now(timezone.utc).isoformat()
     
-    # Convert to dict and serialize datetime to ISO string for MongoDB
-    doc = status_obj.model_dump()
-    doc['timestamp'] = doc['timestamp'].isoformat()
+    # Insert into database
+    await db.rsvps.insert_one(rsvp_dict)
     
-    _ = await db.status_checks.insert_one(doc)
-    return status_obj
+    # Return response
+    return RSVPResponse(
+        id=rsvp_dict['id'],
+        name=rsvp_dict['name'],
+        email=rsvp_dict['email'],
+        phone=rsvp_dict['phone'],
+        guests=rsvp_dict['guests'],
+        message=rsvp_dict['message'],
+        timestamp=datetime.fromisoformat(rsvp_dict['timestamp'])
+    )
 
-@api_router.get("/status", response_model=List[StatusCheck])
-async def get_status_checks():
-    # Exclude MongoDB's _id field from the query results
-    status_checks = await db.status_checks.find({}, {"_id": 0}).to_list(1000)
-    
-    # Convert ISO string timestamps back to datetime objects
-    for check in status_checks:
-        if isinstance(check['timestamp'], str):
-            check['timestamp'] = datetime.fromisoformat(check['timestamp'])
-    
-    return status_checks
+@api_router.get("/rsvps")
+async def get_all_rsvps():
+    """
+    Get all RSVP entries (for admin purposes)
+    """
+    rsvps = await db.rsvps.find({}, {"_id": 0}).to_list(1000)
+    return {"rsvps": rsvps, "total": len(rsvps)}
 
 # Include the router in the main app
 app.include_router(api_router)
