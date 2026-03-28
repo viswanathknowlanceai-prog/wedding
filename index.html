@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Wedding invitation for Gayathri and Mano Vikas">
+  <title>Gayathri weds Mano Vikas | Wedding Invitation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Italiana&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader__content">
+      <img
+        class="preloader__diya"
+        src="https://static.prod-images.emergentagent.com/jobs/36ee2e43-7cbe-481e-898a-e1b6f5037474/images/340bbb4511f890e7d276554d4ffcb0f90b0da979e4167818790c3be4e40cc094.png"
+        alt=""
+      >
+      <div class="preloader__text">
+        <span class="preloader__text-telugu">&#x0C36;&#x0C41;&#x0C2D; &#x0C35;&#x0C3F;&#x0C35;&#x0C3E;&#x0C39;&#x0C02;</span>
+        <span class="preloader__text-english">Shubha Vivaham</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="petals" aria-hidden="true">
+    <span class="petal" style="left: 8%; animation-delay: 0s;"></span>
+    <span class="petal" style="left: 18%; animation-delay: 1.2s;"></span>
+    <span class="petal" style="left: 31%; animation-delay: 2.4s;"></span>
+    <span class="petal" style="left: 43%; animation-delay: 0.8s;"></span>
+    <span class="petal" style="left: 58%; animation-delay: 3.3s;"></span>
+    <span class="petal" style="left: 71%; animation-delay: 1.9s;"></span>
+    <span class="petal" style="left: 84%; animation-delay: 2.8s;"></span>
+    <span class="petal" style="left: 93%; animation-delay: 0.4s;"></span>
+    <span class="flower" style="left: 12%; animation-delay: 0.6s;"></span>
+    <span class="flower" style="left: 27%; animation-delay: 3.1s;"></span>
+    <span class="flower" style="left: 49%; animation-delay: 1.5s;"></span>
+    <span class="flower" style="left: 67%; animation-delay: 4.2s;"></span>
+    <span class="flower" style="left: 88%; animation-delay: 2.3s;"></span>
+  </div>
+
+  <canvas id="confetti-canvas" aria-hidden="true"></canvas>
+
+  <header class="site-header">
+    <nav class="navbar container">
+      <a href="#home" class="brand">
+        <span class="brand__heart">&#9829;</span>
+        <span>G & M</span>
+      </a>
+
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#story">Our Story</a>
+        <a href="#rituals">Rituals</a>
+        <a href="#venue">Venue</a>
+        <a href="#rsvp">RSVP</a>
+      </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="#home">Home</a>
+      <a href="#story">Our Story</a>
+      <a href="#rituals">Rituals</a>
+      <a href="#venue">Venue</a>
+      <a href="#rsvp">RSVP</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero__background"></div>
+      <div class="hero__overlay"></div>
+      <div class="hero__content container">
+        <div class="hero__script reveal">
+          <span class="hero__script-telugu">&#x0C36;&#x0C41;&#x0C2D; &#x0C35;&#x0C3F;&#x0C35;&#x0C3E;&#x0C39;&#x0C02;</span>
+          <span class="hero__script-english">Shubha Vivaham</span>
+        </div>
+        <h1 class="hero__title reveal reveal-delay-1">
+          <span>D. Gayathri</span>
+          <span class="hero__amp">weds</span>
+          <span>D. Mano Vikas</span>
+        </h1>
+        <p class="hero__subtitle reveal reveal-delay-2">We are getting married and would love to celebrate with you.</p>
+
+        <div class="countdown reveal reveal-delay-3" aria-label="Wedding countdown">
+          <div class="countdown__item">
+            <span class="countdown__number" id="days">0</span>
+            <span class="countdown__label">Days</span>
+          </div>
+          <div class="countdown__item">
+            <span class="countdown__number" id="hours">0</span>
+            <span class="countdown__label">Hours</span>
+          </div>
+          <div class="countdown__item">
+            <span class="countdown__number" id="minutes">0</span>
+            <span class="countdown__label">Minutes</span>
+          </div>
+          <div class="countdown__item">
+            <span class="countdown__number" id="seconds">0</span>
+            <span class="countdown__label">Seconds</span>
+          </div>
+        </div>
+
+        <a href="#rsvp" class="hero__cta reveal reveal-delay-3">Confirm Your Presence</a>
+      </div>
+      <div class="scroll-indicator" aria-hidden="true"></div>
+    </section>
+
+    <section class="section section--warm" id="story">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">A Beginning</p>
+          <h2>Our Story</h2>
+          <p>Two hearts, one journey, and a lifetime ahead.</p>
+        </div>
+
+        <div class="story-grid">
+          <article class="story-card reveal">
+            <div class="story-card__image">
+              <img src="./bride.png" alt="Portrait of the bride Gayathri">
+            </div>
+            <div class="story-card__body">
+              <p class="story-card__tag">The Bride</p>
+              <h3>D. Gayathri</h3>
+              <p>A graceful soul who brings warmth, kindness, and light wherever she goes. Her presence turns ordinary moments into treasured memories.</p>
+            </div>
+          </article>
+
+          <article class="story-card reveal reveal-delay-1">
+            <div class="story-card__image">
+              <img src="./groom.png" alt="Portrait of the groom Mano Vikas">
+            </div>
+            <div class="story-card__body">
+              <p class="story-card__tag">The Groom</p>
+              <h3>D. Mano Vikas</h3>
+              <p>A steady heart with quiet strength, deep integrity, and big dreams. His devotion, joy, and care shape the life they are building together.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="rituals">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Celebrations</p>
+          <h2>Wedding Rituals</h2>
+          <p>Join us across a day filled with music, tradition, and blessings.</p>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-visual timeline-visual--muhurtham reveal">
+            <img src="./download%20(24).jpg" alt="Muhurtham occasion visual">
+          </div>
+
+          <article class="timeline-item timeline-item--right timeline-item--highlight reveal">
+            <div class="timeline-item__marker">&#128141;</div>
+            <div class="timeline-item__card">
+              <p class="timeline-item__time">May 7, 2026 &#8226; 10:30 AM</p>
+              <h3>Muhurtham</h3>
+              <p>The sacred wedding ceremony where vows, blessings, and tradition unite two lives in the presence of family and faith.</p>
+            </div>
+          </article>
+
+          <article class="timeline-item reveal">
+            <div class="timeline-item__marker">&#127881;</div>
+            <div class="timeline-item__card">
+              <p class="timeline-item__time">May 7, 2026 &#8226; 7:00 PM</p>
+              <h3>Reception</h3>
+              <p>An evening of dinner, joy, and heartfelt wishes as we celebrate the beginning of our life together.</p>
+            </div>
+          </article>
+
+          <div class="timeline-visual timeline-visual--right reveal">
+            <img src="./g%26v%20reception.png" alt="Reception occasion visual">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--warm" id="venue">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Location</p>
+          <h2>Venue</h2>
+          <p>We would be honored to celebrate this special day with you.</p>
+        </div>
+
+        <div class="venue-grid">
+          <article class="venue-card reveal">
+            <div class="venue-card__icon">&#128205;</div>
+            <h3>SMK Convention</h3>
+            <p class="venue-card__address">
+              Kavali, Nellore Dist.<br>
+              Andhra Pradesh 524 201<br>
+              India
+            </p>
+            <div class="venue-card__meta">
+              <p><strong>Phone:</strong> +91 70931 89371</p>
+              <p><strong>Phone:</strong> +91 99598 37921</p>
+            </div>
+            <a class="venue-card__button" href="https://maps.google.com/?q=SMK Convention, Kavali, Nellore Dist., Andhra Pradesh 524 201" target="_blank" rel="noreferrer">Open in Maps</a>
+          </article>
+
+          <div class="venue-map reveal reveal-delay-1">
+            <iframe
+              src="https://maps.google.com/maps?q=SMK%20Convention%2C%20Kavali%2C%20Nellore%20Dist.%2C%20Andhra%20Pradesh%20524%20201&z=15&output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Wedding venue map"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="rsvp">
+      <div class="container container--narrow">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Response</p>
+          <h2>RSVP</h2>
+          <p>Responses can be sent to WhatsApp and Google Sheets. A local backup is also saved in this browser.</p>
+        </div>
+
+        <div class="success-banner" id="success-banner" role="status" aria-live="polite">
+          <h3>Thank you for your response.</h3>
+          <p>Your RSVP has been processed. WhatsApp opens with your details, and Google Sheets can receive a copy when configured.</p>
+        </div>
+
+        <form class="rsvp-form reveal" id="rsvp-form">
+          <div class="field">
+            <label for="name">Full Name</label>
+            <input id="name" name="name" type="text" required>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" required>
+            </div>
+            <div class="field">
+              <label for="phone">Phone Number</label>
+              <input id="phone" name="phone" type="tel" required>
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="guests">Number of Guests</label>
+              <select id="guests" name="guests">
+                <option value="1">1 Guest</option>
+                <option value="2">2 Guests</option>
+                <option value="3">3 Guests</option>
+                <option value="4">4 Guests</option>
+                <option value="5+">5+ Guests</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="attending">Will you attend?</label>
+              <select id="attending" name="attending">
+                <option value="Yes, with joy">Yes, with joy</option>
+                <option value="Sorry, cannot attend">Sorry, cannot attend</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="message">Special Message</label>
+            <textarea id="message" name="message" rows="4" placeholder="Share your wishes for the couple"></textarea>
+          </div>
+
+          <div class="form-actions">
+            <button class="button button--primary" type="submit">Confirm Attendance</button>
+            <button class="button button--secondary" id="download-rsvps" type="button">Download Saved RSVPs</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>
+        <p class="footer__eyebrow">With love and blessings</p>
+        <h2>Gayathri & family</h2>
+        <p class="footer__date">May 07, 2026</p>
+      </div>
+
+      <div class="footer__actions">
+        <button class="button button--whatsapp" id="share-whatsapp" type="button">
+          <span class="button__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" role="img" focusable="false">
+              <path d="M19.05 4.93A9.86 9.86 0 0 0 12.03 2c-5.46 0-9.9 4.44-9.9 9.9 0 1.74.45 3.43 1.31 4.93L2 22l5.33-1.4a9.9 9.9 0 0 0 4.7 1.2h.01c5.46 0 9.9-4.44 9.9-9.9 0-2.64-1.03-5.13-2.89-6.97Zm-7.02 15.2h-.01a8.2 8.2 0 0 1-4.18-1.14l-.3-.18-3.16.83.84-3.08-.2-.32a8.2 8.2 0 0 1-1.27-4.34c0-4.53 3.69-8.22 8.24-8.22 2.2 0 4.27.85 5.82 2.41a8.15 8.15 0 0 1 2.41 5.82c0 4.53-3.7 8.22-8.2 8.22Zm4.5-6.13c-.25-.13-1.47-.72-1.7-.8-.23-.09-.4-.13-.57.13-.17.25-.65.8-.8.96-.15.17-.3.19-.56.06-.25-.13-1.06-.39-2.02-1.24-.74-.67-1.24-1.5-1.39-1.76-.14-.25-.02-.39.11-.52.12-.12.25-.3.38-.45.13-.15.17-.25.26-.42.08-.17.04-.32-.02-.45-.06-.13-.57-1.37-.78-1.87-.21-.5-.43-.43-.57-.44h-.49c-.17 0-.45.06-.68.32-.23.25-.88.86-.88 2.1s.9 2.44 1.02 2.61c.13.17 1.78 2.72 4.31 3.82.6.26 1.08.42 1.45.53.61.19 1.17.16 1.61.1.49-.08 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.28Z"/>
+            </svg>
+          </span>
+          <span>Share on WhatsApp</span>
+        </button>
+        <button class="button button--ghost" id="copy-link" type="button">Copy Link</button>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./script.js"></script>
+</body>
+</html>
